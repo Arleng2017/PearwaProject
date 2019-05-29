@@ -1,0 +1,56 @@
+page-home {
+
+    ion-header {
+        background-image: url(../../assets/imgs/file.jpg);
+    }
+    
+    // .header-img{
+    //     background-image: url(../../assets/imgs/shirt-bk.jpg);
+    // }
+    ion-content{
+        padding-top:30px;
+    }
+    .title{
+        text-align: left;
+    }
+    .welcom{
+        padding-top: 20px;
+        font-size: 60px;
+    }
+    .sub-welcome{
+        padding-left: 100px;
+        padding-right: 100px;
+    }
+
+
+    .card-background-page {
+
+        ion-card {
+        position: relative;
+        text-align: center;
+        }
+    
+        .card-title {
+        position: absolute;
+        top: 36%;
+        font-size: 2.0em;
+        width: 100%;
+        font-weight: bold;
+        color: #fff;
+        }
+    
+        .card-subtitle {
+        font-size: 1.0em;
+        position: absolute;
+        top: 52%;
+        width: 100%;
+        color: #fff;
+        }
+    }
+    .copyright{
+        padding-top:20px;
+        padding-bottom:20px;
+        padding-right: 20px;
+        color: white;
+    }
+}
