@@ -1,18 +1,39 @@
+<ion-content >
+
+  <ion-navbar color="gray">
+    <ion-buttons end>
+      <button ion-button icon-only (click)="goBasketPage()">My Basket
+        <ion-icon name="ios-basket" icon-end></ion-icon>
+        <div> 0 </div>
+      </button>
+      <button ion-button> | </button>
+      <button ion-button icon-only> Log Out
+        <ion-icon icon-end name="md-exit"></ion-icon>
+      </button>
+      <button ion-button icon-only> Log In
+        <ion-icon icon-end name="ios-person"></ion-icon>
+      </button>
 
 
-<ion-content padding>
+    </ion-buttons>
+  </ion-navbar>
   <ion-navbar color="dark">
-    <button ion-button menuToggle>
+    <!-- <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
-    </button>
+    </button> -->
     <!-- <div class="title"> <ion-title >cloting</ion-title></div> -->
-   
+
     <ion-buttons end>
       <button ion-button color="danger" (click)="goHomePage()">HOME</button>
+      <button ion-button [disabled]="true">|</button>
       <button ion-button (click)="goWomenPage()">WOMEN</button>
+      <button ion-button [disabled]="true">|</button>
       <button ion-button (click)="goMenPage()">MEN</button>
+      <button ion-button [disabled]="true">|</button>
       <button ion-button (click)="goSkirtPage()">SKIRTS</button>
+      <button ion-button [disabled]="true">|</button>
       <button ion-button (click)="goPantPage()">PANTS</button>
+      <button ion-button [disabled]="true">|</button>
     </ion-buttons>
 
 

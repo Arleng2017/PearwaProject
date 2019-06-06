@@ -4,6 +4,8 @@ import { WomenPage } from '../women/women';
 import { SkirtPage } from '../skirt/skirt';
 import { PantPage } from '../pant/pant';
 import { HomePage } from '../home/home';
+import { BasketPage } from '../basket/basket';
+import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
 
 /**
  * Generated class for the MenPage page.
@@ -18,8 +20,10 @@ import { HomePage } from '../home/home';
   templateUrl: 'men.html',
 })
 export class MenPage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  responseData: any;
+  data:any;
+  constructor(public authService:AuthServiceProvider,public navCtrl: NavController, public navParams: NavParams) {
+    this.getMens();
   }
 
   ionViewDidLoad() {
@@ -39,5 +43,18 @@ export class MenPage {
   }
   goPantPage(){
     this.navCtrl.setRoot(PantPage);
+  }
+  goBasketPage(){
+    this.navCtrl.setRoot(BasketPage);
+  }
+  getMens(){  
+    this.authService.postData(null, "getMens").then((result)=>{
+      this.responseData = result;
+      this.data=this.responseData.men;
+      console.log(this.data);
+    }, (err) => {
+      console.error(err);
+    }
+     );
   }
 }

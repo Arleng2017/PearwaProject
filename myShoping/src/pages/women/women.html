@@ -1,4 +1,19 @@
-<ion-content padding>
+<ion-content>
+  <ion-navbar color="gray">
+    <ion-buttons end>
+      <button ion-button icon-only (click)="goBasketPage()">My Basket
+        <ion-icon name="ios-basket" icon-end></ion-icon>
+        <div> 0 </div>
+      </button>
+      <button ion-button> | </button>
+      <button ion-button icon-only> Log Out
+        <ion-icon icon-end name="md-exit"></ion-icon>
+      </button>
+      <button ion-button icon-only> Log In
+        <ion-icon icon-end name="ios-person"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
   <ion-navbar color="dark">
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
@@ -7,15 +22,20 @@
 
     <ion-buttons end>
       <button ion-button (click)="goHomePage()">HOME</button>
+      <button ion-button [disabled]="true">|</button>
       <button ion-button color="danger" (click)="goWomenPage()">WOMEN</button>
+      <button ion-button [disabled]="true">|</button>
       <button ion-button (click)="goMenPage()">MEN</button>
+      <button ion-button [disabled]="true">|</button>
       <button ion-button (click)="goSkirtPage()">SKIRTS</button>
+      <button ion-button [disabled]="true">|</button>
       <button ion-button (click)="goPantPage()">PANTS</button>
+      <button ion-button [disabled]="true">|</button>
     </ion-buttons>
 
 
   </ion-navbar>
-  <img src="../../assets/imgs/shirt-bk.jpg" alt="" height="500px" width="1980px">
+  <!-- <img src="../../assets/imgs/shirt-bk.jpg" alt="" height="500px" width="1980px"> -->
   <div text-center>
     <br>
     <h1 class="welcom">Ladies Suit</h1>
@@ -23,49 +43,16 @@
     <br>
   </div>
 
-  <div text-center>
-    <h1>สินค้าลดราคา</h1>
-  </div>
-  <br>
-  <br>
-  <ion-grid>
-    <ion-row>
-      <ion-col>
-        <div text-center>
-          <img src="../../assets/imgs/shirt2_grande.png" width="250px">
-          <div>Amsterdam</div>
-          <div>1500 บาท</div>
-          <button ion-button clear color="danger">buy</button>
-        </div>
-      </ion-col>
-      <ion-col>
-        <div text-center>
-          <img src="../../assets/imgs/username_indigo-front_600x600.png" width="250px">
-          <div>Amsterdam</div>
-          <div>1500 บาท</div>
-          <button ion-button clear color="danger">buy</button>
-        </div>
-      </ion-col>
-      <ion-col>
-        <div text-center>
-          <img src="../../assets/imgs/t_gwb__35906.1354389258.1280.1280.png" width="250px">
-          <div>Amsterdam</div>
-          <div>1500 บาท</div>
-          <button ion-button clear color="danger">buy</button>
-        </div>
-      </ion-col>
-      <ion-col>
-        <div text-center>
-
-          <img src="../../assets/imgs/shirt2_grande.png" width="250px">
-          <div>Amsterdam</div>
-          <div>1500 บาท</div>
-          <button ion-button clear color="danger">buy</button>
-        </div>
-
-      </ion-col>
-    </ion-row>
-  </ion-grid>
+  <ion-row>
+    <ion-col col-3 width-50 *ngFor="let d of data">
+      <div text-center>
+        <img src="{{d.picture}}" width="250px">
+        <div>{{d.name}}</div>
+        <div>{{d.price}} บาท</div>
+        <button ion-button clear color="danger">buy</button>
+      </div>
+    </ion-col>
+  </ion-row>
   <br>
   <br>
   <div style="background-color:black" text-end>

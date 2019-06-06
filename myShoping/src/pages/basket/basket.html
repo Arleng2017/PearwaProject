@@ -1,7 +1,8 @@
 <ion-content >
+
   <ion-navbar color="gray">
-    <ion-buttons end>
-      <button ion-button icon-only (click)="goBasketPage()">My Basket
+    <ion-buttons end >
+      <button ion-button icon-only color="danger">My Basket
         <ion-icon name="ios-basket" icon-end></ion-icon>
         <div> 0 </div>
       </button>
@@ -25,43 +26,16 @@
       <button ion-button [disabled]="true">|</button>
       <button ion-button (click)="goWomenPage()">WOMEN</button>
       <button ion-button [disabled]="true">|</button>
-      <button ion-button (click)="goMenPage()">MEN</button>
+      <button ion-button  (click)="goMenPage()">MEN</button>
       <button ion-button [disabled]="true">|</button>
       <button ion-button (click)="goSkirtPage()">SKIRTS</button>
       <button ion-button [disabled]="true">|</button>
-      <button ion-button color="danger" (click)="goPantPage()">PANTS</button>
+      <button ion-button (click)="goPantPage()">PANTS</button>
       <button ion-button [disabled]="true">|</button>
     </ion-buttons>
 
-
   </ion-navbar>
-  <!-- <img src="../../assets/imgs/shirt-bk.jpg" alt="" height="500px" width="1980px"> -->
-  <div text-center>
-    <br>
-    <h1 class="welcom">Pants for men</h1>
-    <p class="sub-welcome">กางเกงสำหรับสุภาพบุรุษ</p>
-    <br>
-  </div>
 
-  <br>
-  <br>
- 
-  <ion-row responsive-sm wrap>
-    <ion-col width-30 *ngFor="let d of data"> 
-        <div text-center>
-            <img src="{{d.picture}}" width="250px">
-            <div>{{d.name}}</div>
-            <div>{{d.price}} บาท</div>
-            <button ion-button clear color="danger">buy</button>
-          </div>
-    </ion-col>
-  </ion-row>
-
-  <div style="background-color:black" text-end>
-    <div class="copyright">
-      Copyright © 2019 pearwa. All right reserved.
-    </div>
-  </div>
 
 
 </ion-content>

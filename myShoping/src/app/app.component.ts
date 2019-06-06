@@ -9,6 +9,8 @@ import { WomenPage } from '../pages/women/women';
 import { MenPage } from '../pages/men/men';
 import { SkirtPage } from '../pages/skirt/skirt';
 import { PantPage } from '../pages/pant/pant';
+import { SignupPage } from '../pages/signup/signup';
+import { AdminPage } from '../pages/admin/admin';
 
 @Component({
   templateUrl: 'app.html'
@@ -18,15 +20,22 @@ export class MyApp {
 
   rootPage: any = PantPage;
 
-  pages: Array<{title: string, component: any}>;
+  pages: Array<{ title: string, component: any }>;
 
   constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
     this.initializeApp();
 
     // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'Home', component: HomePage },
-      { title: 'List', component: ListPage }
+      // { title: 'Home', component: HomePage },
+      // { title: 'List', component: ListPage },
+      { title: 'เสื้อสูทสำหรับบุรุษ', component: MenPage },
+      { title: 'เสื้อสูทสำหรับสตรี', component: WomenPage },
+      { title: 'กางเกงสำหรับบุรุษ', component: PantPage },
+      { title: 'กระโปรงสำหรับสตรี', component: SkirtPage },
+      { title: 'สมัครสมาชิก', component: SignupPage },
+      { title: 'admin', component: AdminPage }
+
     ];
 
   }
