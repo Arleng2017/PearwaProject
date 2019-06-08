@@ -1,4 +1,4 @@
-<ion-content>
+<ion-header>
   <ion-navbar color="gray">
     <ion-buttons end>
       <button ion-button icon-only (click)="goBasketPage()">My Basket
@@ -9,7 +9,7 @@
       <button ion-button icon-only> Log Out
         <ion-icon icon-end name="md-exit"></ion-icon>
       </button>
-      <button ion-button icon-only> Log In
+      <button ion-button icon-only (click)="login()"> Log In
         <ion-icon icon-end name="ios-person"></ion-icon>
       </button>
     </ion-buttons>
@@ -31,21 +31,19 @@
       <button ion-button (click)="goPantPage()">PANTS</button>
       <button ion-button [disabled]="true">|</button>
     </ion-buttons>
-
-
   </ion-navbar>
-  <!-- <ion-content padding> -->
-  <!-- <img src="../../assets/imgs/shirt-bk.jpg" alt="" height="500px" width="1980px"> -->
+</ion-header>
+<ion-content>
   <div text-center>
     <br>
     <h1 class="welcom">Skirts for ladies</h1>
-    
+
     <p class="sub-welcome">กระโปรงสำหรับสุภาพสตรี</p>
     <br>
   </div>
 
-  <ion-row >
-    <ion-col col-3 width-50 *ngFor="let d of data" >
+  <ion-row>
+    <ion-col col-3 width-50 *ngFor="let d of data">
       <div text-center>
         <img src="{{d.picture}}" width="250px">
         <div>{{d.name}}</div>

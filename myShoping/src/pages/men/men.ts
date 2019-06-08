@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { WomenPage } from '../women/women';
 import { SkirtPage } from '../skirt/skirt';
 import { PantPage } from '../pant/pant';
 import { HomePage } from '../home/home';
 import { BasketPage } from '../basket/basket';
 import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
+import { LoginPage } from '../login/login';
 
 /**
  * Generated class for the MenPage page.
@@ -22,7 +23,7 @@ import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
 export class MenPage {
   responseData: any;
   data:any;
-  constructor(public authService:AuthServiceProvider,public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public alertCtrl:AlertController,public authService:AuthServiceProvider,public navCtrl: NavController, public navParams: NavParams) {
     this.getMens();
   }
 
@@ -50,11 +51,14 @@ export class MenPage {
   getMens(){  
     this.authService.postData(null, "getMens").then((result)=>{
       this.responseData = result;
-      this.data=this.responseData.men;
+      this.data=this.responseData.data;
       console.log(this.data);
     }, (err) => {
       console.error(err);
     }
      );
+  }
+  login(){
+    this.navCtrl.setRoot(LoginPage);
   }
 }

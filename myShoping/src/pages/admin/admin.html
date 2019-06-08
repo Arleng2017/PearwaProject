@@ -8,13 +8,15 @@
 
     <ion-buttons end>
       <!-- <button ion-button >HOME</button> -->
-      <button ion-button>จัดการสมาชิก</button>
+      <button ion-button (click)="goUserManagerPage()">หน้าหลัก</button>
+        <button ion-button [disabled]="true">|</button>
+      <button ion-button (click)="goUserManagerPage()">จัดการสมาชิก</button>
       <button ion-button [disabled]="true">|</button>
-      <button ion-button>รายการสั่งซื้อสินค้า</button>
+      <button ion-button (click)="goOrderManagerPage()">รายการสั่งซื้อสินค้า</button>
       <button ion-button [disabled]="true">|</button>
-      <button ion-button>จัดการสินค้า</button>
-      <button ion-button [disabled]="true">|</button>
-      <button ion-button>ออกจากระบบ</button>
+      <button ion-button (click)="goProductManagerPage()">จัดการสินค้า</button>
+      <button ion-button [disabled]="true" >|</button>
+      <button ion-button (click)="logout()">ออกจากระบบ</button>
       <!-- <button ion-button >PANTS</button> -->
     </ion-buttons>
 

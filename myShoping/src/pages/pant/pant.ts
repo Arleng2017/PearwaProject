@@ -6,6 +6,7 @@ import { SkirtPage } from '../skirt/skirt';
 import { HomePage } from '../home/home';
 import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
 import { BasketPage } from '../basket/basket';
+import { LoginPage } from '../login/login';
 /**
  * Generated class for the PantPage page.
  *
@@ -21,11 +22,11 @@ import { BasketPage } from '../basket/basket';
 export class PantPage {
 
   responseData: any;
-  data:any;
-  user={
-    id_user:null
+  data: any;
+  user = {
+    id_user: null
   }
-  constructor(public navCtrl: NavController, public navParams: NavParams,public authService:AuthServiceProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public authService: AuthServiceProvider) {
     this.getPants();
   }
 
@@ -33,33 +34,35 @@ export class PantPage {
     console.log('ionViewDidLoad PantPage');
   }
 
-  goHomePage(){
+  goHomePage() {
     this.navCtrl.setRoot(HomePage);
   }
-  goMenPage(){
+  goMenPage() {
     this.navCtrl.setRoot(MenPage);
   }
-  goWomenPage(){
+  goWomenPage() {
     this.navCtrl.setRoot(WomenPage);
   }
-  goSkirtPage(){
+  goSkirtPage() {
     this.navCtrl.setRoot(SkirtPage);
   }
-  goPantPage(){
+  goPantPage() {
     this.navCtrl.setRoot(PantPage);
   }
-  goBasketPage(){
+  goBasketPage() {
     this.navCtrl.setRoot(BasketPage);
   }
-  getPants(){  
-    this.authService.postData(this.user, "getPants").then((result)=>{
+  getPants() {
+    this.authService.postData(null, "getPants").then((result) => {
       this.responseData = result;
-      this.data=this.responseData.pants;
+      this.data = this.responseData.data;
       console.log(this.data);
     }, (err) => {
       console.error(err);
     }
-     );
+    );
   }
-  
+  login(){
+    this.navCtrl.setRoot(LoginPage);
+  }
 }

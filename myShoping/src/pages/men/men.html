@@ -1,20 +1,21 @@
-<ion-content >
+<ion-header>
 
-    <ion-navbar color="gray">
-        <ion-buttons end (click)="goBasketPage()"> 
-          <button ion-button icon-only>My Basket
-            <ion-icon name="ios-basket" icon-end></ion-icon>
-            <div> 0 </div>
-          </button>
-          <button ion-button> | </button>
-          <button ion-button icon-only> Log Out
-            <ion-icon icon-end name="md-exit"></ion-icon>
-          </button>
-          <button ion-button icon-only> Log In
-            <ion-icon icon-end name="ios-person"></ion-icon>
-          </button>
-        </ion-buttons>
-      </ion-navbar>
+  <ion-navbar color="white">
+    <img src="../../assets/imgs/zara_2019_logo.png"  height="40px" alt="">
+    <ion-buttons end >
+      <button ion-button icon-only (click)="goBasketPage()">My Basket
+        <ion-icon name="ios-basket" icon-end></ion-icon>
+        <div> 0 </div>
+      </button>
+      <button ion-button> | </button>
+      <button ion-button icon-only> Log Out
+        <ion-icon icon-end name="md-exit"></ion-icon>
+      </button>
+      <button ion-button icon-only (click)="login()"> Log In
+        <ion-icon icon-end name="ios-person"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
   <ion-navbar color="dark">
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
@@ -36,7 +37,10 @@
 
   </ion-navbar>
 
-  
+</ion-header>
+<ion-content>
+
+
   <div text-center>
     <br>
     <h1 class="welcom">Gentleman suit</h1>
@@ -46,16 +50,16 @@
   <br>
   <br>
 
-  <ion-row >
-      <ion-col col-3 width-50 *ngFor="let d of data" >
-        <div text-center>
-          <img src="{{d.picture}}" width="250px">
-          <div>{{d.name}}</div>
-          <div>{{d.price}} บาท</div>
-          <button ion-button clear color="danger">buy</button>
-        </div>
-      </ion-col>
-    </ion-row>
+  <ion-row>
+    <ion-col col-3 width-50 *ngFor="let d of data">
+      <div text-center>
+        <img src="{{d.picture}}" width="250px">
+        <div>{{d.name}}</div>
+        <div>{{d.price}} บาท</div>
+        <button ion-button clear color="danger">buy</button>
+      </div>
+    </ion-col>
+  </ion-row>
   <br>
   <br>
   <div style="background-color:black" text-end>

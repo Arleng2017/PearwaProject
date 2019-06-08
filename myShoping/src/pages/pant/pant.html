@@ -1,4 +1,4 @@
-<ion-content >
+<ion-header>
   <ion-navbar color="gray">
     <ion-buttons end>
       <button ion-button icon-only (click)="goBasketPage()">My Basket
@@ -9,7 +9,7 @@
       <button ion-button icon-only> Log Out
         <ion-icon icon-end name="md-exit"></ion-icon>
       </button>
-      <button ion-button icon-only> Log In
+      <button ion-button icon-only (click)="login()"> Log In
         <ion-icon icon-end name="ios-person"></ion-icon>
       </button>
     </ion-buttons>
@@ -18,8 +18,6 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <!-- <div class="title"> <ion-title >cloting</ion-title></div> -->
-
     <ion-buttons end>
       <button ion-button (click)="goHomePage()">HOME</button>
       <button ion-button [disabled]="true">|</button>
@@ -32,9 +30,10 @@
       <button ion-button color="danger" (click)="goPantPage()">PANTS</button>
       <button ion-button [disabled]="true">|</button>
     </ion-buttons>
-
-
   </ion-navbar>
+
+</ion-header>
+<ion-content>
   <!-- <img src="../../assets/imgs/shirt-bk.jpg" alt="" height="500px" width="1980px"> -->
   <div text-center>
     <br>
@@ -45,15 +44,15 @@
 
   <br>
   <br>
- 
+
   <ion-row responsive-sm wrap>
-    <ion-col width-30 *ngFor="let d of data"> 
-        <div text-center>
-            <img src="{{d.picture}}" width="250px">
-            <div>{{d.name}}</div>
-            <div>{{d.price}} บาท</div>
-            <button ion-button clear color="danger">buy</button>
-          </div>
+    <ion-col col-3 width-30 *ngFor="let d of data">
+      <div text-center>
+        <img src="{{d.picture}}" width="250px">
+        <div>{{d.name}}</div>
+        <div>{{d.price}} บาท</div>
+        <button ion-button clear color="danger">buy</button>
+      </div>
     </ion-col>
   </ion-row>
 

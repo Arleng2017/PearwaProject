@@ -6,6 +6,7 @@ import { PantPage } from '../pant/pant';
 import { HomePage } from '../home/home';
 import { BasketPage } from '../basket/basket';
 import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
+import { LoginPage } from '../login/login';
 
 /**
  * Generated class for the WomenPage page.
@@ -52,11 +53,14 @@ export class WomenPage {
   getWomens(){
     this.authService.postData(null, "getWomens").then((result)=>{
       this.responseData = result;
-      this.data=this.responseData.women;
+      this.data=this.responseData.data;
       console.log(this.data);
     }, (err) => {
       console.error(err);
     }
      );
+  }
+  login(){
+    this.navCtrl.setRoot(LoginPage);
   }
 }

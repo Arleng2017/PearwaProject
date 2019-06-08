@@ -6,6 +6,7 @@ import { PantPage } from '../pant/pant';
 import { HomePage } from '../home/home';
 import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
 import { BasketPage } from '../basket/basket';
+import { LoginPage } from '../login/login';
 
 /**
  * Generated class for the SkirtPage page.
@@ -50,12 +51,15 @@ export class SkirtPage {
   getSkirts(){
     this.authService.postData(null, "getSkirts").then((result)=>{
       this.responseData = result;
-      this.data=this.responseData.skirts;
+      this.data=this.responseData.data;
       console.log(this.data);
     }, (err) => {
       console.error(err);
     }
      );
+  }
+  login(){
+    this.navCtrl.setRoot(LoginPage);
   }
 
 }

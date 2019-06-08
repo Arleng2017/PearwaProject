@@ -2,10 +2,10 @@ import { Injectable } from '@angular/core';
 import { Http, Headers } from '@angular/http';
 import 'rxjs/add/operator/map';
 // localhost
-//let apiUrl = "http://127.0.0.1/ShopingAPI/api/";
+let apiUrl = "http://127.0.0.1/ShopingAPI/api/";
 //ipWIFI
 // let apiUrl = "http://172.20.10.4/api/";
-let apiUrl = "http://172.20.10.4/ShopingAPI/api/";
+// let apiUrl = "http://172.20.10.4/ShopingAPI/api/";
 
 
 /*
@@ -19,6 +19,7 @@ export class AuthServiceProvider {
 
   constructor(public http: Http) {
     console.log('Hello AuthServiceProvider Provider');
+    
   }
 
   postData(credentials, type) {
@@ -34,6 +35,9 @@ export class AuthServiceProvider {
         });
 
     });
+
+
+    // return this.http.post(apiUrl + type, JSON.stringify(credentials), { headers: headers }).map(res => res.json())
 
   }
 }

@@ -1,0 +1,41 @@
+page-productmanager {
+
+    ion-col { 
+        display: grid;
+        padding: 10px;
+      }
+    h3{
+          align-self: auto;
+          padding-top: 150px;
+          color: darkgray;
+          padding-bottom: 80px;
+    }
+  
+    ion-card{
+        width: 120px;
+        height: auto;
+        border-radius: 10px;
+        // border-radius: 0px 0px 10px 10px;
+    }
+    img{
+        padding:10px;;
+    }
+    .name{
+        font-size: 18px;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    .price{
+        font-size: 16px;
+        padding-bottom: 10px;
+    }
+    .btDelete{
+        padding-bottom: 10px;
+    }
+    .addCard{
+        padding-top:200px;
+        color:grey;
+        font-size: 30px;
+       
+    }
+}

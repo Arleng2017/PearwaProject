@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
-import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
+import { IonicApp, IonicErrorHandler, IonicModule, AlertController } from 'ionic-angular';
 import { HttpModule } from '@angular/http';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
@@ -17,6 +17,13 @@ import { AuthServiceProvider } from '../providers/auth-service/auth-service';
 import { SignupPage } from '../pages/signup/signup';
 import { AdminPage } from '../pages/admin/admin';
 import { BasketPage } from '../pages/basket/basket';
+import { ProductmanagerPage } from '../pages/productmanager/productmanager';
+import { UsermanagerPage } from '../pages/usermanager/usermanager';
+import { OrdermanagerPage } from '../pages/ordermanager/ordermanager';
+import { AddproductPage } from '../pages/addproduct/addproduct';
+import { EditproductPage } from '../pages/editproduct/editproduct';
+import { LoginPage } from '../pages/login/login';
+import { EdituserPage } from '../pages/edituser/edituser';
 // import { LoginNavbarComponent } from '../components/login-navbar/login-navbar';
 // import { AuthService } from '../providers/auth-service/auth-service';
 
@@ -32,11 +39,19 @@ import { BasketPage } from '../pages/basket/basket';
     SignupPage,
     AdminPage,
     BasketPage,
+    ProductmanagerPage,
+    UsermanagerPage,
+    OrdermanagerPage,
+    AddproductPage,
+    EditproductPage,
+    LoginPage,
+    EdituserPage
     // LoginNavbarComponent
   ],
   imports: [
     BrowserModule,
     HttpModule,
+
     IonicModule.forRoot(MyApp),
   ],
   bootstrap: [IonicApp],
@@ -50,12 +65,19 @@ import { BasketPage } from '../pages/basket/basket';
     PantPage,
     SignupPage,
     AdminPage,
-    BasketPage
+    BasketPage,
+    ProductmanagerPage,
+    UsermanagerPage,
+    OrdermanagerPage,
+    AddproductPage,
+    EditproductPage,
+    LoginPage,
+    EdituserPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    
+    AlertController,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     CallApiProvider,
     AuthServiceProvider

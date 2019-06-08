@@ -4,13 +4,14 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { HomePage } from '../pages/home/home';
-import { ListPage } from '../pages/list/list';
+// import { ListPage } from '../pages/list/list';
 import { WomenPage } from '../pages/women/women';
 import { MenPage } from '../pages/men/men';
 import { SkirtPage } from '../pages/skirt/skirt';
 import { PantPage } from '../pages/pant/pant';
 import { SignupPage } from '../pages/signup/signup';
 import { AdminPage } from '../pages/admin/admin';
+import { AddproductPage } from '../pages/addproduct/addproduct';
 
 @Component({
   templateUrl: 'app.html'
@@ -18,7 +19,7 @@ import { AdminPage } from '../pages/admin/admin';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = PantPage;
+  rootPage: any = AdminPage;
 
   pages: Array<{ title: string, component: any }>;
 
