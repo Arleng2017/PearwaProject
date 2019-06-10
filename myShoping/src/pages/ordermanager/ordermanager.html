@@ -25,5 +25,7 @@
 
 <ion-content padding>
  
- 
+ <ion-item *ngFor="let d of data">
+{{d.id}} ชื่อสินค้า {{d.product_name}} ชื่อคนสั่งซื้อ {{d.order_name}}  สถานะการจัดส่ง {{d.status_order}}  ราคา {{d.price}} ขนาด {{d.size}} วันที่สั่งซื้อ {{d.date_order}} เวลาสั่งซื้อ {{d.time_order}} วันที่จัดส่ง {{d.date_sender}} เวลาการจัดส่ง  {{d.time_sender}}
+ </ion-item>
 </ion-content>

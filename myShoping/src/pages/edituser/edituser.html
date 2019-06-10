@@ -4,46 +4,69 @@
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
 -->
-<ion-header>
+<!-- <ion-header>
   <ion-navbar color="dark">
     <ion-title>edituser</ion-title>
   </ion-navbar>
-</ion-header>
+</ion-header> -->
 
 <ion-content>
   <ion-grid>
     <ion-row>
-      <ion-col col-3>
-
+      <ion-col col-4>
+        <div>
+          <img src="../../assets/imgs/zara_2019_logo.png" height="100px" (click)="homepage()">
+        </div>
       </ion-col>
-      <ion-col col-6>
+
+      <ion-col col-3>
+        <br><br><br><br><br><br>
         <div text-center>
-          <h3>แก้ไขข้อมูล</h3>
+          <h3>แก้ไข้ข้อมูลสมาชิก</h3>
+
           <ion-item>
             <ion-label floating color="dark">ชื่อ : </ion-label>
             <ion-input [(ngModel)]="user.name"></ion-input>
           </ion-item>
           <ion-item>
-            <ion-label floating color="dark">นามสกุล : </ion-label>
-            <ion-input [(ngModel)]="user.lastname"></ion-input>
-          </ion-item>
-          <ion-item>
             <ion-label floating color="dark">Email : </ion-label>
             <ion-input [(ngModel)]="user.email"></ion-input>
           </ion-item>
+          <br>
+          <br>
+          <br>
+          <button ion-button color="dark" full large (click)="updateUser()">บันทึกการแก้ไข</button>
+
+        </div>
+
+      </ion-col>
+
+      <ion-col col-1></ion-col>
+
+      <ion-col col-3>
+        <div text-center>
+          <h3></h3>
+          <br><br><br><br><br><br><br><br>
+
+          <ion-item>
+            <ion-label floating color="dark">นามสกุล : </ion-label>
+            <ion-input [(ngModel)]="user.lastname"></ion-input>
+          </ion-item>
+
           <ion-item>
             <ion-label floating color="dark">เบอร์ไทร : </ion-label>
             <ion-input [(ngModel)]="user.tel"></ion-input>
           </ion-item>
-          <br>
-          <br>
-          <br>
-          <button ion-button color="secondary" (click)="updateUser()">บันทึกข้อมูล</button>
+
         </div>
-
+        <br><br><br><br><br><br><br><br><br><br><br><br>
+        <div class="btCancel">
+        <button ion-button (click)="cancel()" color="dark">ย้อนกลับ</button>
+      </div>
       </ion-col>
-      <ion-col col-3>
 
+      <ion-col col-1>
+        <div></div>
       </ion-col>
     </ion-row>
   </ion-grid>

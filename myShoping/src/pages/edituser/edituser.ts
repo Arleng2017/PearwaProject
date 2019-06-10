@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
 import { UsermanagerPage } from '../usermanager/usermanager';
+import { HomePage } from '../home/home';
 
 /**
  * Generated class for the EdituserPage page.
@@ -80,6 +81,12 @@ export class EdituserPage {
     alert.present();
 
   }
-
+  homepage() {
+    this.navCtrl.setRoot(HomePage);
+  }
+  
+  cancel(){
+    this.navCtrl.pop();
+  }
 
 }
