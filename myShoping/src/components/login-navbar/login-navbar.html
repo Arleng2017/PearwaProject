@@ -1,17 +1,16 @@
-<!-- <ion-content>
+
   <ion-navbar color="gray">
     <ion-buttons end>
-      <button ion-button icon-only>My Basket
+      <button ion-button icon-only (click)="goBasket()">My Basket
         <ion-icon name="ios-basket" icon-end></ion-icon>
         <div> 0 </div>
       </button>
       <button ion-button> | </button>
-      <button ion-button icon-only> Log Out
+      <button ion-button icon-only (click)="logout()" *ngIf="loginStatus=='yes'"> Log Out
         <ion-icon icon-end name="md-exit"></ion-icon>
       </button>
-      <button ion-button icon-only> Log In
+      <button ion-button icon-only (click)="login()" *ngIf="loginStatus=='no'"> Log In
         <ion-icon icon-end name="ios-person"></ion-icon>
       </button>
     </ion-buttons>
   </ion-navbar>
-</ion-content> -->

@@ -5,6 +5,7 @@ import { OrdermanagerPage } from '../ordermanager/ordermanager';
 import { HomePage } from '../home/home';
 import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
 import { EdituserPage } from '../edituser/edituser';
+import { LoginServiceProvider } from '../../providers/login-service/login-service';
 
 /**
  * Generated class for the UsermanagerPage page.
@@ -21,7 +22,7 @@ import { EdituserPage } from '../edituser/edituser';
 export class UsermanagerPage {
   responseData: any;
   data: any;
-  constructor(public alertCtrl: AlertController, public authService: AuthServiceProvider, public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public loginService: LoginServiceProvider, public alertCtrl: AlertController, public authService: AuthServiceProvider, public navCtrl: NavController, public navParams: NavParams) {
     this.getUsers();
   }
 
@@ -39,12 +40,13 @@ export class UsermanagerPage {
   }
   logout() {
     this.navCtrl.setRoot(HomePage);
+    this.loginService.loginStatusOnSystem = "no";
   }
 
   getUsers() {
     this.authService.postData(null, "getUsers").then((result) => {
       this.responseData = result;
-      this.data = this.responseData.user;
+      this.data = this.responseData.data;
       console.log(this.data);
     }, (err) => {
       console.error(err);
@@ -62,7 +64,7 @@ export class UsermanagerPage {
           text: 'ตกลง',
           handler: data => {
             console.log(id);
-            this.authService.postData(id,"deleteUser").then((result) => {
+            this.authService.postData(id, "deleteUser").then((result) => {
               this.getUsers();
             }, (err) => {
               console.error(err);
@@ -76,8 +78,18 @@ export class UsermanagerPage {
   }
 
   editUser(id: string) {
-    this.navCtrl.push(EdituserPage,{id:id});
+    this.navCtrl.push(EdituserPage, { id: id });
 
+  }
+  test() {
+    this.authService.postData(null, "getUsers").then((result) => {
+      this.responseData = result;
+      this.data = this.responseData.user;
+      console.log(this.data);
+    }, (err) => {
+      console.error(err);
+    }
+    );
   }
 
 }

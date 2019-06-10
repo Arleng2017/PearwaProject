@@ -6,6 +6,7 @@ import { HomePage } from '../home/home';
 import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
 import { AddproductPage } from '../addproduct/addproduct';
 import { EditproductPage } from '../editproduct/editproduct';
+import { LoginServiceProvider } from '../../providers/login-service/login-service';
 
 /**
  * Generated class for the ProductmanagerPage page.
@@ -31,7 +32,7 @@ export class ProductmanagerPage {
   responseData: any;
   data: any;
   
-  constructor(public alertCtrl: AlertController, public authService: AuthServiceProvider, public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public loginService:LoginServiceProvider,public alertCtrl: AlertController, public authService: AuthServiceProvider, public navCtrl: NavController, public navParams: NavParams) {
     this.chooseEdit();
 
   }
@@ -50,6 +51,7 @@ export class ProductmanagerPage {
   }
   logout() {
     this.navCtrl.setRoot(HomePage);
+    this.loginService.loginStatusOnSystem="no";
   }
   chooseEdit() {
     console.log(this.edit)

@@ -1,5 +1,6 @@
 <ion-header>
-  <ion-navbar color="gray">
+  <login-navbar></login-navbar>
+  <!-- <ion-navbar color="gray">
     <ion-buttons end>
       <button ion-button icon-only (click)="goBasketPage()">My Basket
         <ion-icon name="ios-basket" icon-end></ion-icon>
@@ -13,7 +14,7 @@
         <ion-icon icon-end name="ios-person"></ion-icon>
       </button>
     </ion-buttons>
-  </ion-navbar>
+  </ion-navbar> -->
   <ion-navbar color="dark">
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
@@ -51,7 +52,7 @@
         <img src="{{d.picture}}" width="250px">
         <div>{{d.name}}</div>
         <div>{{d.price}} บาท</div>
-        <button ion-button clear color="danger">buy</button>
+        <button ion-button clear color="danger" (click)="addToBasket()">buy</button>
       </div>
     </ion-col>
   </ion-row>

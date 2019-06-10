@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { MenPage } from '../men/men';
 import { WomenPage } from '../women/women';
 import { SkirtPage } from '../skirt/skirt';
@@ -7,6 +7,7 @@ import { HomePage } from '../home/home';
 import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
 import { BasketPage } from '../basket/basket';
 import { LoginPage } from '../login/login';
+import { LoginServiceProvider } from '../../providers/login-service/login-service';
 /**
  * Generated class for the PantPage page.
  *
@@ -26,7 +27,7 @@ export class PantPage {
   user = {
     id_user: null
   }
-  constructor(public navCtrl: NavController, public navParams: NavParams, public authService: AuthServiceProvider) {
+  constructor(public alertCtrl:AlertController,public loginService:LoginServiceProvider,public navCtrl: NavController, public navParams: NavParams, public authService: AuthServiceProvider) {
     this.getPants();
   }
 
@@ -62,7 +63,18 @@ export class PantPage {
     }
     );
   }
-  login(){
-    this.navCtrl.setRoot(LoginPage);
+  addToBasket(){
+    if(this.loginService.loginStatusOnSystem=="yes"){
+
+    }else{
+      const alert=this.alertCtrl.create({
+        title:'กรุณาเข้าสู่ระบบ',
+        buttons:[{
+          text:'ตกลง'
+        }]
+      });
+      alert.present();
+      this.navCtrl.setRoot(LoginPage);
+    }
   }
 }

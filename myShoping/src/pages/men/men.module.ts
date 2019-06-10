@@ -8,6 +8,7 @@ import { MenPage } from './men';
   ],
   imports: [
     IonicPageModule.forChild(MenPage),
+    
   ],
 })
 export class MenPageModule {}

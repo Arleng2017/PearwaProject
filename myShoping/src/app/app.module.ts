@@ -24,6 +24,9 @@ import { AddproductPage } from '../pages/addproduct/addproduct';
 import { EditproductPage } from '../pages/editproduct/editproduct';
 import { LoginPage } from '../pages/login/login';
 import { EdituserPage } from '../pages/edituser/edituser';
+import { LoginServiceProvider } from '../providers/login-service/login-service';
+import { LoginNavbarComponent } from '../components/login-navbar/login-navbar';
+import { MenPageModule } from '../pages/men/men.module';
 // import { LoginNavbarComponent } from '../components/login-navbar/login-navbar';
 // import { AuthService } from '../providers/auth-service/auth-service';
 
@@ -45,13 +48,13 @@ import { EdituserPage } from '../pages/edituser/edituser';
     AddproductPage,
     EditproductPage,
     LoginPage,
-    EdituserPage
-    // LoginNavbarComponent
+    EdituserPage,
+    LoginNavbarComponent
   ],
   imports: [
     BrowserModule,
     HttpModule,
-
+    // LoginNavbarComponent,
     IonicModule.forRoot(MyApp),
   ],
   bootstrap: [IonicApp],
@@ -72,15 +75,19 @@ import { EdituserPage } from '../pages/edituser/edituser';
     AddproductPage,
     EditproductPage,
     LoginPage,
-    EdituserPage
+    EdituserPage, LoginNavbarComponent,
   ],
   providers: [
     StatusBar,
     SplashScreen,
     AlertController,
-    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    { provide: ErrorHandler, useClass: IonicErrorHandler },
     CallApiProvider,
-    AuthServiceProvider
+    AuthServiceProvider,
+    LoginServiceProvider
+    
+
+
   ]
 })
-export class AppModule {}
+export class AppModule { }

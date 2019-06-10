@@ -19,7 +19,7 @@ import { AddproductPage } from '../pages/addproduct/addproduct';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = AdminPage;
+  rootPage: any = HomePage;
 
   pages: Array<{ title: string, component: any }>;
 

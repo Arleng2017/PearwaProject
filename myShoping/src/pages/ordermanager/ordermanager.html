@@ -8,24 +8,72 @@
   <ion-navbar color="dark">
     <ion-title>ordermanager</ion-title>
     <ion-buttons end>
-        <!-- <button ion-button >HOME</button> -->
-        <button ion-button (click)="goUserManagerPage()">หน้าหลัก</button>
-        <button ion-button [disabled]="true">|</button>
-        <button ion-button (click)="goUserManagerPage()">จัดการสมาชิก</button>
-        <button ion-button [disabled]="true">|</button>
-        <button ion-button (click)="goOrderManagerPage()">รายการสั่งซื้อสินค้า</button>
-        <button ion-button [disabled]="true">|</button>
-        <button ion-button (click)="goProductManagerPage()">จัดการสินค้า</button>
-        <button ion-button [disabled]="true" >|</button>
-        <button ion-button (click)="logout()">ออกจากระบบ</button>
-        <!-- <button ion-button >PANTS</button> -->
-      </ion-buttons>
+      <!-- <button ion-button >HOME</button> -->
+      <button ion-button (click)="goUserManagerPage()">หน้าหลัก</button>
+      <button ion-button [disabled]="true">|</button>
+      <button ion-button (click)="goUserManagerPage()">จัดการสมาชิก</button>
+      <button ion-button [disabled]="true">|</button>
+      <button ion-button (click)="goOrderManagerPage()">รายการสั่งซื้อสินค้า</button>
+      <button ion-button [disabled]="true">|</button>
+      <button ion-button (click)="goProductManagerPage()">จัดการสินค้า</button>
+      <button ion-button [disabled]="true">|</button>
+      <button ion-button (click)="logout()">ออกจากระบบ</button>
+      <!-- <button ion-button >PANTS</button> -->
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
- 
- <ion-item *ngFor="let d of data">
-{{d.id}} ชื่อสินค้า {{d.product_name}} ชื่อคนสั่งซื้อ {{d.order_name}}  สถานะการจัดส่ง {{d.status_order}}  ราคา {{d.price}} ขนาด {{d.size}} วันที่สั่งซื้อ {{d.date_order}} เวลาสั่งซื้อ {{d.time_order}} วันที่จัดส่ง {{d.date_sender}} เวลาการจัดส่ง  {{d.time_sender}}
- </ion-item>
+
+  <ion-item *ngFor="let d of data;let i =index">
+    <ion-row>
+      <ion-col col-1>
+        {{i+1}}.
+      </ion-col>
+      <ion-col col-3>
+        ชื่อสินค้า {{d.product_name}}
+      </ion-col>
+      <ion-col col-3>
+        ราคา {{d.price}}   ขนาด {{d.size}}
+      </ion-col>
+      <ion-col>
+        วันที่สั่งซื้อ {{d.date_order}}
+      </ion-col>
+      <ion-col>
+        เวลาสั่งซื้อ {{d.time_order}}
+      </ion-col>
+
+    </ion-row>
+
+    <ion-row>
+      <ion-col col-1>
+        <div></div>
+      </ion-col>
+      <ion-col col-3>
+        ชื่อคนสั่งซื้อ {{d.order_name}}
+      </ion-col>
+      <ion-col col-3>
+        สถานะการจัดส่ง {{d.status_order}}
+      </ion-col>
+      <ion-col>
+        วันที่จัดส่ง {{d.date_sender}}
+      </ion-col>
+      <ion-col>
+        เวลาการจัดส่ง {{d.time_sender}}
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-9>
+        <div></div>
+      </ion-col>
+      <ion-col col-3>
+        <div end>
+          <button ion-button color="dark">อัพเดตสถานะการสั่งซื้อ</button>
+          <button ion-button color="danger">ยกเลิกการสั่งซื้อ</button>
+        </div>
+
+      </ion-col>
+
+    </ion-row>
+  </ion-item>
 </ion-content>

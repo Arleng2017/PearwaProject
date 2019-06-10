@@ -4,6 +4,7 @@ import { ProductmanagerPage } from '../productmanager/productmanager';
 import { UsermanagerPage } from '../usermanager/usermanager';
 import { HomePage } from '../home/home';
 import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
+import { LoginServiceProvider } from '../../providers/login-service/login-service';
 
 /**
  * Generated class for the OrdermanagerPage page.
@@ -20,7 +21,7 @@ import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
 export class OrdermanagerPage {
   responseData:any;
   data:any;
-  constructor(public authService:AuthServiceProvider,public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public loginService:LoginServiceProvider,public authService:AuthServiceProvider,public navCtrl: NavController, public navParams: NavParams) {
   this.getOrderList();
   }
 
@@ -38,6 +39,7 @@ export class OrdermanagerPage {
   }
   logout(){
     this.navCtrl.setRoot(HomePage);
+    this.loginService.loginStatusOnSystem="no";
   }
   getOrderList(){
     this.authService.postData(null, "getOrderList").then((result) => {

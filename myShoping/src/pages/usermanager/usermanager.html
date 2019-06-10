@@ -36,6 +36,8 @@
       แก้ไขข้อมูล
     </ion-col>
   </ion-row>
+
+
   <ion-item *ngFor="let d of data; let i=index">
     <ion-row>
       <ion-col col-1><div></div></ion-col>
@@ -50,8 +52,6 @@
         <button ion-button color="danger" (click)="delUser(d.id)">ลบ</button>
       </ion-col>
     </ion-row>
-
-
   </ion-item>
-
+<button ion-button (click)="test()"></button>
 </ion-content>

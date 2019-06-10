@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { MenPage } from '../men/men';
 import { SkirtPage } from '../skirt/skirt';
 import { PantPage } from '../pant/pant';
@@ -7,6 +7,7 @@ import { HomePage } from '../home/home';
 import { BasketPage } from '../basket/basket';
 import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
 import { LoginPage } from '../login/login';
+import { LoginServiceProvider } from '../../providers/login-service/login-service';
 
 /**
  * Generated class for the WomenPage page.
@@ -22,8 +23,8 @@ import { LoginPage } from '../login/login';
 })
 export class WomenPage {
   responseData: any;
-  data:any;
-  constructor(public authService:AuthServiceProvider,public navCtrl: NavController, public navParams: NavParams) {
+  data: any;
+  constructor(public alertCtrl: AlertController, public loginService: LoginServiceProvider, public authService: AuthServiceProvider, public navCtrl: NavController, public navParams: NavParams) {
     this.getWomens();
   }
 
@@ -31,36 +32,47 @@ export class WomenPage {
     console.log('ionViewDidLoad WomenPage');
   }
 
-  goHomePage(){
+  goHomePage() {
     this.navCtrl.setRoot(HomePage);
   }
-  goMenPage(){
+  goMenPage() {
     this.navCtrl.setRoot(MenPage);
   }
-  goWomenPage(){
+  goWomenPage() {
     this.navCtrl.setRoot(WomenPage);
   }
-  goSkirtPage(){
+  goSkirtPage() {
     this.navCtrl.setRoot(SkirtPage);
   }
-  goPantPage(){
+  goPantPage() {
     this.navCtrl.setRoot(PantPage);
   }
-  goBasketPage(){
+  goBasketPage() {
     this.navCtrl.setRoot(BasketPage);
   }
- 
-  getWomens(){
-    this.authService.postData(null, "getWomens").then((result)=>{
+
+  getWomens() {
+    this.authService.postData(null, "getWomens").then((result) => {
       this.responseData = result;
-      this.data=this.responseData.data;
+      this.data = this.responseData.data;
       console.log(this.data);
     }, (err) => {
       console.error(err);
     }
-     );
+    );
   }
-  login(){
-    this.navCtrl.setRoot(LoginPage);
+  addToBasket() {
+    if (this.loginService.loginStatusOnSystem == "yes") {
+
+    } else {
+      const alert = this.alertCtrl.create({
+        title: 'กรุณาเข้าสู่ระบบ',
+        buttons: [{
+          text: 'ตกลง'
+        }]
+      });
+      alert.present();
+      this.navCtrl.setRoot(LoginPage);
+    }
   }
 }

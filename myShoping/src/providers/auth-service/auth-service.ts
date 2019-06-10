@@ -16,7 +16,7 @@ let apiUrl = "http://127.0.0.1/ShopingAPI/api/";
 */
 @Injectable()
 export class AuthServiceProvider {
-
+  // loginStatusOnSystem:any="yes";
   constructor(public http: Http) {
     console.log('Hello AuthServiceProvider Provider');
     
