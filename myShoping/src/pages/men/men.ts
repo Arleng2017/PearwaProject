@@ -8,6 +8,7 @@ import { BasketPage } from '../basket/basket';
 import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
 import { LoginPage } from '../login/login';
 import { LoginServiceProvider } from '../../providers/login-service/login-service';
+import { OrderPage } from '../order/order';
 // import {LoginNavbarComponent} from '../../components/login-navbar/login-navbar'
 /**
  * Generated class for the MenPage page.
@@ -24,12 +25,13 @@ import { LoginServiceProvider } from '../../providers/login-service/login-servic
 export class MenPage {
   responseData: any;
   data: any;
+  get: string;
   // loginStatusOnSystem: any;
   constructor(public loginService: LoginServiceProvider, public alertCtrl: AlertController, public authService: AuthServiceProvider, public navCtrl: NavController, public navParams: NavParams) {
     this.getMens();
-    
+    this.get = "getMenById";
     console.log(loginService.loginStatusOnSystem);
-    
+
   }
 
   ionViewDidLoad() {
@@ -63,14 +65,17 @@ export class MenPage {
     }
     );
   }
-  addToBasket(){
-    if(this.loginService.loginStatusOnSystem=="yes"){
-
-    }else{
-      const alert=this.alertCtrl.create({
-        title:'กรุณาเข้าสู่ระบบ',
-        buttons:[{
-          text:'ตกลง'
+  addToBasket(id: string) {
+    if (this.loginService.loginStatusOnSystem == "yes") {
+      this.navCtrl.push(OrderPage, { id:id, get: this.get });
+      console.log(id);
+      console.log(this.get);
+      
+    } else {
+      const alert = this.alertCtrl.create({
+        title: 'กรุณาเข้าสู่ระบบ',
+        buttons: [{
+          text: 'ตกลง'
         }]
       });
       alert.present();
@@ -79,5 +84,5 @@ export class MenPage {
 
   }
 
-  
+
 }

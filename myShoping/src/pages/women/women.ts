@@ -8,6 +8,7 @@ import { BasketPage } from '../basket/basket';
 import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
 import { LoginPage } from '../login/login';
 import { LoginServiceProvider } from '../../providers/login-service/login-service';
+import { OrderPage } from '../order/order';
 
 /**
  * Generated class for the WomenPage page.
@@ -24,8 +25,10 @@ import { LoginServiceProvider } from '../../providers/login-service/login-servic
 export class WomenPage {
   responseData: any;
   data: any;
+  get: string;
   constructor(public alertCtrl: AlertController, public loginService: LoginServiceProvider, public authService: AuthServiceProvider, public navCtrl: NavController, public navParams: NavParams) {
     this.getWomens();
+    this.get="getWomenById";
   }
 
   ionViewDidLoad() {
@@ -61,9 +64,12 @@ export class WomenPage {
     }
     );
   }
-  addToBasket() {
+  addToBasket(id: string) {
     if (this.loginService.loginStatusOnSystem == "yes") {
-
+      this.navCtrl.push(OrderPage, { id:id, get: this.get });
+      console.log(id);
+      console.log(this.get);
+      
     } else {
       const alert = this.alertCtrl.create({
         title: 'กรุณาเข้าสู่ระบบ',
@@ -74,5 +80,6 @@ export class WomenPage {
       alert.present();
       this.navCtrl.setRoot(LoginPage);
     }
+
   }
 }

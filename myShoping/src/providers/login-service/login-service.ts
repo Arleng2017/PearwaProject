@@ -11,6 +11,15 @@ import { AuthServiceProvider } from '../auth-service/auth-service';
 @Injectable()
 export class LoginServiceProvider {
   loginStatusOnSystem:any="no";
+  
+  public user = {
+    id:null,
+    name: null,
+    lastname: null,
+    email: null,
+    tel: null,
+    status: null
+  }
 
   constructor() {
     console.log('Hello LoginServiceProvider Provider');

@@ -65,6 +65,11 @@ export class LoginPage {
         this.navCtrl.setRoot(AdminPage);
       }else if(this.data[this.loginCheck].status=="user"){
         this.navCtrl.setRoot(HomePage);
+        this.loginService.user.id=this.data[this.loginCheck].id;
+        this.loginService.user.name=this.data[this.loginCheck].name;
+        this.loginService.user.lastname=this.data[this.loginCheck].lastname;
+        console.log(" user id : "+this.loginService.user.id);
+        
       }
     
     } else {

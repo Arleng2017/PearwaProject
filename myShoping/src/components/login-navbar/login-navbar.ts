@@ -8,6 +8,7 @@ import { PantPage } from '../../pages/pant/pant';
 import { LoginPage } from '../../pages/login/login';
 import { LoginServiceProvider } from '../../providers/login-service/login-service';
 import { BasketPage } from '../../pages/basket/basket';
+import { MyorderPage } from '../../pages/myorder/myorder';
 
 /**
  * Generated class for the LoginNavbarComponent component.
@@ -55,5 +56,21 @@ export class LoginNavbarComponent {
       this.navCtrl.setRoot(LoginPage);
     }
   }
+
+  goOrder(){
+    if(this.loginService.loginStatusOnSystem=="yes"){
+      this.navCtrl.setRoot(MyorderPage)
+    }else if (this.loginService.loginStatusOnSystem=="no"){
+      const alert=this.alertCtrl.create(
+        {
+          title:'กรุณาเข้าสู่ระบบ',
+          buttons:['ตกลง']
+        }
+      );
+      alert.present()
+      this.navCtrl.setRoot(LoginPage);
+    }
+  }
+  
 
 }

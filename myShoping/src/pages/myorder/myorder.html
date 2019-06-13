@@ -17,10 +17,12 @@
       <button ion-button (click)="goPantPage()">PANTS</button>
       <button ion-button [disabled]="true">|</button>
     </ion-buttons>
+
   </ion-navbar>
 </ion-header>
 
 <ion-content style="background-color: #EFEFF0">
+
   <br>
   <br>
   <ion-list>
@@ -30,43 +32,31 @@
           <div></div>
         </ion-col>
         <ion-col col-1>ลำดับ</ion-col>
-        <ion-col col-5> ชื่อสินค้า </ion-col>
+        <ion-col col-4> ชื่อสินค้า </ion-col>
         <ion-col col-2> ราคา </ion-col>
         <ion-col col-2> size</ion-col>
       </ion-row>
       <ion-row *ngFor="let d of data ; let i = index">
+        <!-- < *ngIf="data[i].status_order==orderStatus"> -->
+        <!-- <div > -->
         <ion-col col-1>
           <div></div>
         </ion-col>
         <ion-col col-1>{{i+1}}.</ion-col>
-        <ion-col col-5> {{d.product_name}} </ion-col>
+        <ion-col col-4> {{d.product_name}} </ion-col>
         <ion-col col-2> {{d.price}} </ion-col>
         <ion-col col-2> {{d.size}}</ion-col>
-        <div>
-          <div>
-            <button ion-button color="danger" clear icon-only (click)="deleteProduct(d.id)">
-              <ion-icon name="close"></ion-icon>
-            </button>
-          </div>
-        </div>
+        <ion-col col-2>
+          <button ion-button color="danger" clear icon-only>ยกเลิกการสั่งซื้อ
+            <ion-icon name="close"></ion-icon>
+          </button>
+        </ion-col>
+
+
 
       </ion-row>
-      <h1>ราคารวม {{priceTotal}} บาท</h1>
-      <ion-row>
-        <ion-col col-8>
-          <div></div>
-        </ion-col>
-        <ion-col col-3>
-          <br>
-          <br>
-          <div class="btBuy" *ngIf="orderStatus=='basket'">
-            <button ion-button large color="dark" (click)="inOrder()">สั่งซื้อสินค้า</button>
-          </div>
-        </ion-col>
-        <ion-col col-1>
-          <div></div>
-        </ion-col>
-      </ion-row>
+
     </ion-grid>
   </ion-list>
+  <h1>ราคารวม {{priceTotal}} บาท</h1>
 </ion-content>

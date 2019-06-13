@@ -48,11 +48,11 @@
 
   <ion-row responsive-sm wrap>
     <ion-col col-3 width-30 *ngFor="let d of data">
-      <div text-center>
+      <div text-center (click)="addToBasket(d.id)">
         <img src="{{d.picture}}" width="250px">
         <div>{{d.name}}</div>
         <div>{{d.price}} บาท</div>
-        <button ion-button clear color="danger" (click)="addToBasket()">buy</button>
+        <button ion-button clear color="danger" (click)="addToBasket(d.id)">buy</button>
       </div>
     </ion-col>
   </ion-row>

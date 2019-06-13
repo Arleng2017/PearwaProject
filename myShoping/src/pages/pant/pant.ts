@@ -8,6 +8,7 @@ import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
 import { BasketPage } from '../basket/basket';
 import { LoginPage } from '../login/login';
 import { LoginServiceProvider } from '../../providers/login-service/login-service';
+import { OrderPage } from '../order/order';
 /**
  * Generated class for the PantPage page.
  *
@@ -24,11 +25,11 @@ export class PantPage {
 
   responseData: any;
   data: any;
-  user = {
-    id_user: null
-  }
+  get: string;
+  
   constructor(public alertCtrl:AlertController,public loginService:LoginServiceProvider,public navCtrl: NavController, public navParams: NavParams, public authService: AuthServiceProvider) {
     this.getPants();
+    this.get="getPantById";
   }
 
   ionViewDidLoad() {
@@ -50,9 +51,7 @@ export class PantPage {
   goPantPage() {
     this.navCtrl.setRoot(PantPage);
   }
-  goBasketPage() {
-    this.navCtrl.setRoot(BasketPage);
-  }
+  
   getPants() {
     this.authService.postData(null, "getPants").then((result) => {
       this.responseData = result;
@@ -63,18 +62,22 @@ export class PantPage {
     }
     );
   }
-  addToBasket(){
-    if(this.loginService.loginStatusOnSystem=="yes"){
-
-    }else{
-      const alert=this.alertCtrl.create({
-        title:'กรุณาเข้าสู่ระบบ',
-        buttons:[{
-          text:'ตกลง'
+  addToBasket(id: string) {
+    if (this.loginService.loginStatusOnSystem == "yes") {
+      this.navCtrl.push(OrderPage, { id:id, get: this.get });
+      console.log(id);
+      console.log(this.get);
+      
+    } else {
+      const alert = this.alertCtrl.create({
+        title: 'กรุณาเข้าสู่ระบบ',
+        buttons: [{
+          text: 'ตกลง'
         }]
       });
       alert.present();
       this.navCtrl.setRoot(LoginPage);
     }
+
   }
 }

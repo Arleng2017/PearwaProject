@@ -1,0 +1,87 @@
+<!--
+  Generated template for the OrderPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <login-navbar></login-navbar>
+  <ion-navbar color="dark">
+    <ion-title>order</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content style="background-color: #EFEFF0">
+  <ion-item>
+    <ion-row>
+      <ion-col col-12 *ngFor="let d of data">
+        <ion-row>
+          <ion-col col-6>
+            <div text-center>
+              <div item-center>
+                <img src="{{d.picture}}">
+              </div>
+              <br>
+              <br>
+              <div>{{d.name}}</div>
+              <div>{{d.price}} บาท</div>
+              <!-- <button ion-button clear color="danger" (click)="addToBasket(d.id)">buy</button> -->
+            </div>
+          </ion-col>
+          <!-- <ion-card-header>กรุณากรอกข้อมูลให้ครบ</ion-card-header> -->
+          <ion-col col-4>
+            <div *ngIf="get=='getWomenById'||get=='getMenById'">
+              <ion-item>
+                
+                <ion-label floating color="dark">รอบอก</ion-label>
+                <ion-input  type="number" [(ngModel)]="inches"></ion-input>
+               
+              </ion-item>
+              <ion-item>
+                <ion-label floating color="dark">ความยาวอก</ion-label>
+                <ion-input  type="number"></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-label floating color="dark">ไหล่</ion-label>
+                <ion-input  type="number"></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-label floating color="dark">ความยาวแขน</ion-label>
+                <ion-input  type="number"></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-label floating color="dark">ปลายแขน</ion-label>
+                <ion-input  type="number"></ion-input>
+              </ion-item>
+            </div>
+            <div *ngIf="get=='getPantById'||get=='getSkirtById'">
+                <ion-item>
+                  <ion-label floating color="dark">เอว</ion-label>
+                  <ion-input type="number" [(ngModel)]="inches"></ion-input>
+                </ion-item>
+                <ion-item>
+                  <ion-label floating color="dark">ความยาว</ion-label>
+                  <ion-input  type="number"></ion-input>
+                </ion-item>
+                <ion-item>
+                  <ion-label floating color="dark">สะโพก</ion-label>
+                  <ion-input  type="number"></ion-input>
+                </ion-item>
+                
+              </div>
+            <br>
+            <br>
+            <div text-center>
+              <button ion-button color="dark" class="btBack" (click)="calSize()">หยิบใส่ตะกร้า</button>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-col>
+    </ion-row>
+  </ion-item>
+  <!-- <div class="btBack">
+    <button ion-button (click)="back()" color="dark" class="btBack">ย้อนกลับ</button>
+  </div> -->
+  <!-- </ion-col>
+  </ion-row> -->
+</ion-content>

@@ -8,6 +8,7 @@ import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
 import { BasketPage } from '../basket/basket';
 import { LoginPage } from '../login/login';
 import { LoginServiceProvider } from '../../providers/login-service/login-service';
+import { OrderPage } from '../order/order';
 
 /**
  * Generated class for the SkirtPage page.
@@ -24,8 +25,10 @@ import { LoginServiceProvider } from '../../providers/login-service/login-servic
 export class SkirtPage {
   responseData: any;
   data: any;
+  get: string;
   constructor(public alertCtrl: AlertController, public loginService: LoginServiceProvider, public authService: AuthServiceProvider, public navCtrl: NavController, public navParams: NavParams) {
     this.getSkirts();
+    this.get="getSkirtById";
   }
 
   ionViewDidLoad() {
@@ -59,9 +62,12 @@ export class SkirtPage {
     }
     );
   }
-  addToBasket() {
+  addToBasket(id: string) {
     if (this.loginService.loginStatusOnSystem == "yes") {
-
+      this.navCtrl.push(OrderPage, { id:id, get: this.get });
+      console.log(id);
+      console.log(this.get);
+      
     } else {
       const alert = this.alertCtrl.create({
         title: 'กรุณาเข้าสู่ระบบ',
@@ -72,5 +78,6 @@ export class SkirtPage {
       alert.present();
       this.navCtrl.setRoot(LoginPage);
     }
+
   }
 }
