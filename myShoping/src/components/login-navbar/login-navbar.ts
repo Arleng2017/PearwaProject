@@ -9,6 +9,9 @@ import { LoginPage } from '../../pages/login/login';
 import { LoginServiceProvider } from '../../providers/login-service/login-service';
 import { BasketPage } from '../../pages/basket/basket';
 import { MyorderPage } from '../../pages/myorder/myorder';
+import { UserinfoeditPageModule } from '../../pages/userinfoedit/userinfoedit.module';
+import { UserinfoeditPage } from '../../pages/userinfoedit/userinfoedit';
+import { UserinfoPage } from '../../pages/userinfo/userinfo';
 
 /**
  * Generated class for the LoginNavbarComponent component.
@@ -71,6 +74,14 @@ export class LoginNavbarComponent {
       this.navCtrl.setRoot(LoginPage);
     }
   }
+
+  goMyProflie(){
+    this.navCtrl.setRoot(UserinfoPage);
+  }
+
+ 
+  // Close the dropdown if the user clicks outside of it
   
+   
 
 }

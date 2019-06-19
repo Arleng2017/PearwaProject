@@ -24,23 +24,28 @@
 </ion-header>
 
 <ion-content padding>
-  <ion-row>
-    <ion-col col-1><div></div></ion-col>
-    <ion-col col-1>ลำดับ </ion-col>
-    <ion-col col-2>ชื่อ </ion-col>
-    <ion-col col-2>นามสกุล </ion-col>
-    <ion-col col-2>Email</ion-col>
-    <ion-col col-2> เบอร์โทร </ion-col>
-    <!-- <ion-col colo-1><button ion-button color="primary">แก้ไข</button></ion-col> -->
-    <ion-col colo-2>
-      แก้ไขข้อมูล
-    </ion-col>
-  </ion-row>
-
+  <ion-item>
+    <ion-row>
+      <ion-col col-1>
+        <div></div>
+      </ion-col>
+      <ion-col col-1>ลำดับ </ion-col>
+      <ion-col col-2>ชื่อ </ion-col>
+      <ion-col col-2>นามสกุล </ion-col>
+      <ion-col col-2>Email</ion-col>
+      <ion-col col-2> เบอร์โทร </ion-col>
+      <!-- <ion-col colo-1><button ion-button color="primary">แก้ไข</button></ion-col> -->
+      <ion-col colo-2>
+        แก้ไขข้อมูล
+      </ion-col>
+    </ion-row>
+  </ion-item>
 
   <ion-item *ngFor="let d of data; let i=index">
     <ion-row>
-      <ion-col col-1><div></div></ion-col>
+      <ion-col col-1>
+        <div></div>
+      </ion-col>
       <ion-col col-1>{{i+1}}</ion-col>
       <ion-col col-2>{{d.name}} </ion-col>
       <ion-col col-2>{{d.lastname}}</ion-col>
@@ -53,5 +58,5 @@
       </ion-col>
     </ion-row>
   </ion-item>
-<button ion-button (click)="test()"></button>
+  <button ion-button (click)="test()"></button>
 </ion-content>

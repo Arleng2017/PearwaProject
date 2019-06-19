@@ -29,6 +29,8 @@ import { LoginNavbarComponent } from '../components/login-navbar/login-navbar';
 import { MenPageModule } from '../pages/men/men.module';
 import { OrderPage } from '../pages/order/order';
 import { MyorderPage } from '../pages/myorder/myorder';
+import { UserinfoeditPage } from '../pages/userinfoedit/userinfoedit';
+import { UserinfoPage } from '../pages/userinfo/userinfo';
 // import { LoginNavbarComponent } from '../components/login-navbar/login-navbar';
 // import { AuthService } from '../providers/auth-service/auth-service';
 
@@ -53,7 +55,9 @@ import { MyorderPage } from '../pages/myorder/myorder';
     EdituserPage,
     LoginNavbarComponent,
     OrderPage,
-    MyorderPage
+    MyorderPage,
+    UserinfoeditPage,
+    UserinfoPage
   ],
   imports: [
     BrowserModule,
@@ -82,7 +86,9 @@ import { MyorderPage } from '../pages/myorder/myorder';
     EdituserPage, 
     LoginNavbarComponent,
     OrderPage,
-    MyorderPage
+    MyorderPage,
+    UserinfoeditPage,
+    UserinfoPage
   ],
   providers: [
     StatusBar,

@@ -1,19 +1,27 @@
-
-  <ion-navbar color="white">
-    <ion-buttons end>
-        <button ion-button icon-only (click)="goOrder()">My Order
-            <ion-icon name="cart" icon-end></ion-icon>
-          </button>
-          <button ion-button> | </button>
-      <button ion-button icon-only (click)="goBasket()">My Basket
-        <ion-icon name="ios-basket" icon-end></ion-icon>
-      </button>
-      <button ion-button> | </button>
-      <button ion-button icon-only (click)="logout()" *ngIf="loginStatus=='yes'"> Log Out
+<ion-navbar color="white">
+  <ion-buttons end>
+      <button ion-button icon-only (click)="goMyProflie()" *ngIf="loginStatus=='yes'">My Profile
+          <ion-icon name="person" icon-end></ion-icon>
+        </button>
+        <button ion-button  *ngIf="loginStatus=='yes'"> | </button>
+    <button ion-button icon-only (click)="goOrder()"  *ngIf="loginStatus=='yes'">My Order
+      <ion-icon name="cart" icon-end></ion-icon>
+    </button>
+    <button ion-button  *ngIf="loginStatus=='yes'"> | </button>
+    <button ion-button icon-only (click)="goBasket()"  *ngIf="loginStatus=='yes'">My Basket
+      <ion-icon name="ios-basket" icon-end></ion-icon>
+    </button>
+    <button ion-button  *ngIf="loginStatus=='yes'"> | </button>
+    <button ion-button icon-only (click)="logout()" *ngIf="loginStatus=='yes'"> Log Out 
         <ion-icon icon-end name="md-exit"></ion-icon>
-      </button>
-      <button ion-button icon-only (click)="login()" *ngIf="loginStatus=='no'"> Log In
-        <ion-icon icon-end name="ios-person"></ion-icon>
-      </button>
-    </ion-buttons>
-  </ion-navbar>
+    </button>
+    <!-- <ion-label>กรุณาล็อกอินเข้าสู่ระบบก่อนใข้งาน</ion-label> -->
+    <button ion-button icon-only (click)="login()" *ngIf="loginStatus=='no'"> Log In
+      <ion-icon icon-end name="ios-person"></ion-icon>
+    </button>
+  </ion-buttons>
+
+  
+
+
+</ion-navbar>

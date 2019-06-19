@@ -25,11 +25,19 @@ page-home {
 
     .card-background-page {
 
+        .picTitle{
+        
+        position: relative;
+        text-align: center;
+        }
         ion-card {
         position: relative;
         text-align: center;
         }
-    
+        .ion-card {
+        position: relative;
+        text-align: center;
+        }
         .card-title {
         position: absolute;
         top: 36%;
@@ -38,7 +46,26 @@ page-home {
         font-weight: bold;
         color: #fff;
         }
+        .card-title1 {
+            position: absolute;
+            top: 36%;
+            font-size: 5.0em;
+            width: 100%;
+            font-weight: bold;
+            color: #fff;
+            // border: 0.5px solid white ;
+            padding: 2.30769rem 3.84615rem;
+            margin: 0;
+            border : 1px solid rgba(255, 255, 255, 0.3);
+            padding-left: px;
+            // border: 20px 
+        }
     
+        .card-title2{
+           
+            // padding-left: 30px;
+        
+        }
         .card-subtitle {
         font-size: 1.0em;
         position: absolute;
@@ -53,4 +80,9 @@ page-home {
         padding-right: 20px;
         color: white;
     }
+    .sub1{
+        font-size: 20px;
+    }
+
+    
 }

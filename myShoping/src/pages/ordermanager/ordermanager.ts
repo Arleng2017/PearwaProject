@@ -42,7 +42,7 @@ export class OrdermanagerPage {
     this.loginService.loginStatusOnSystem="no";
   }
   getOrderList(){
-    this.authService.postData(null, "getOrderList").then((result) => {
+    this.authService.postData(null, "getAllOrderList").then((result) => {
       this.responseData = result;
       this.data = this.responseData.data;
       console.log(this.data);

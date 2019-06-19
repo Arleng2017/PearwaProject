@@ -25,16 +25,20 @@
   <br>
   <ion-list>
     <ion-grid style="background-color:white">
-      <ion-row>
-        <ion-col col-1>
-          <div></div>
-        </ion-col>
-        <ion-col col-1>ลำดับ</ion-col>
-        <ion-col col-5> ชื่อสินค้า </ion-col>
-        <ion-col col-2> ราคา </ion-col>
-        <ion-col col-2> size</ion-col>
-      </ion-row>
+      <ion-item>
+        <ion-row>
+          <ion-col col-1>
+            <div></div>
+          </ion-col>
+          <ion-col col-1>ลำดับ</ion-col>
+          <ion-col col-5> ชื่อสินค้า </ion-col>
+          <ion-col col-2> ราคา </ion-col>
+          <ion-col col-2> size</ion-col>
+        </ion-row>
+      </ion-item>
+      <br>
       <ion-row *ngFor="let d of data ; let i = index">
+
         <ion-col col-1>
           <div></div>
         </ion-col>
@@ -44,22 +48,35 @@
         <ion-col col-2> {{d.size}}</ion-col>
         <div>
           <div>
-            <button ion-button color="danger" clear icon-only (click)="deleteProduct(d.id)">
-              <ion-icon name="close"></ion-icon>
-            </button>
+            <ion-buttons end>
+              <button ion-button color="danger" clear icon-only (click)="deleteProduct(d.id)">ลบสินค้า
+                <ion-icon name="close"></ion-icon>
+              </button>
+            </ion-buttons>
+
           </div>
         </div>
 
       </ion-row>
-      <h1>ราคารวม {{priceTotal}} บาท</h1>
+      <ion-item></ion-item>
+      <ion-item>
+        <ion-row>
+          <ion-col col-9></ion-col>
+          <ion-col col-3>
+            <h1>ราคารวม {{priceTotal}} บาท</h1>
+          </ion-col>
+        </ion-row>
+
+      </ion-item>
+
       <ion-row>
         <ion-col col-8>
           <div></div>
         </ion-col>
         <ion-col col-3>
           <br>
-          <br>
-          <div class="btBuy" *ngIf="orderStatus=='basket'">
+
+          <div class="btBuy" text-end>
             <button ion-button large color="dark" (click)="inOrder()">สั่งซื้อสินค้า</button>
           </div>
         </ion-col>
@@ -69,4 +86,11 @@
       </ion-row>
     </ion-grid>
   </ion-list>
+  <br>
+  <br>
+  <!-- <div style="background-color:black" text-end>
+    <div class="copyright">
+      Copyright © 2019 pearwa. All right reserved.
+    </div>
+  </div> -->
 </ion-content>

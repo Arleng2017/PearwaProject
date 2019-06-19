@@ -12,6 +12,7 @@ import { PantPage } from '../pages/pant/pant';
 import { SignupPage } from '../pages/signup/signup';
 import { AdminPage } from '../pages/admin/admin';
 import { AddproductPage } from '../pages/addproduct/addproduct';
+import { UserinfoeditPage } from '../pages/userinfoedit/userinfoedit';
 
 @Component({
   templateUrl: 'app.html'
@@ -35,6 +36,7 @@ export class MyApp {
       { title: 'กางเกงสำหรับบุรุษ', component: PantPage },
       { title: 'กระโปรงสำหรับสตรี', component: SkirtPage },
       { title: 'สมัครสมาชิก', component: SignupPage },
+      { title: 'แก้ไขข้อมูลส่วนตัว', component: UserinfoeditPage },
       { title: 'admin', component: AdminPage }
 
     ];
